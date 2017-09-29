@@ -38,11 +38,6 @@ public class BalletManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
 
@@ -55,7 +50,9 @@ public class BalletManager : MonoBehaviour
             {
                 if (isCreatefoodBallet)
                 {
+                   
                     foodShow = Instantiate(Resources.Load("Prefabs/FoodObject/FoodTexture_" + ObjectManager.Instance.getTargetNumber(), typeof(GameObject))) as GameObject;
+                    iTween.RotateBy(foodShow, iTween.Hash("y", 12, "time", 48, "looptype", iTween.LoopType.loop, "easetype", iTween.EaseType.linear));
                     isCreatefoodBallet = false;
                     foodShow.transform.position = balletObjectShow.position;
                     foodShow.transform.parent = balletObjectShow.transform;
